@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+
+     <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100 min-h-screen flex flex-col">
+
+<!-- Navbar -->
+<nav class="bg-purple-700 text-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+
+        <!-- Website Title -->
+        <a href="/" class="text-2xl font-bold hover:text-purple-300 transition-colors">MyJourney</a>
+
+        <!-- Hamburger Button for Mobile-->
+        <button class="md:hidden focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+
+         <!-- Navbar Links (Desktop & Mobile) -->
+        <div id="mobile-menu" class="hidden md:flex md:space-x-4 flex-col md:flex-row items-center md:items-start">
+            <a href="/" class="hover:text-purple-300 transition-colors py-2 md:py-0 text-center md:text-left">Home</a>
+            <a href="/about/" class="hover:text-purple-300 transition-colors py-2 md:py-0 text-center md:text-left">About Me</a>
+        </div>
+
+    </div>
+</nav>
+
+
+    <!-- Main content -->
+    <main class="flex-grow container mx-auto px-6 py-10">
+        <h1 class="text-4xl font-bold text-center mb-8 text-purple-800">✨ About Me</h1>
+
+        {% if profile %}
+
+        <!-- Profile Card -->
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center md:flex-row md:items-start gap-6">
+            {% if profile.image %}
+
+            <!-- Profile Image -->
+            <img src="{{ profile.image.url }}" alt="Profile Image" class="w-48 h-48 rounded-full object-cover shadow-md">
+            {% endif %}
+            <div class="flex flex-col gap-4">
+
+                <!-- Profile Name -->
+                <h2 class="text-2xl font-semibold text-purple-800">{{ profile.name }}</h2>
+
+                <!-- Profile Bio -->
+                <p class="text-gray-700">{{ profile.bio }}</p>
+
+                <!-- Profile Skills -->
+                <p class="text-gray-600"><strong>Skills:</strong> {{ profile.skills }}</p>
+
+                <!-- Profile Email -->
+                <p class="text-gray-600"><strong>Email:</strong> {{ profile.email }}</p>
+            </div>
+        </div>
+        {% else %}
+
+        <!-- Message if Profile Not Added -->
+        <p class="text-center text-gray-500">Profile not added yet.</p>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-600 py-6 bg-purple-50 mt-10">
+        &copy; 2025 My Journey | Built with ❤️ using Django
+    </footer>
+
+</body>
+</html>
