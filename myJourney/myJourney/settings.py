@@ -126,3 +126,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+from pathlib import Path
+
+STATIC_URL = '/static/'
+
+# Tell Django where to look for static files outside apps
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
+

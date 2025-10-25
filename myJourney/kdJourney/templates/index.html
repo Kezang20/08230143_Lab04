@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +63,20 @@
             <!-- Message if no entries exist -->
             <p class="text-center text-gray-500 col-span-full">No learning entries yet. Start adding your journey!</p>
             {% endfor %}
+
+                <!-- Admin Screenshot Card -->
+<!-- Admin Screenshots Card -->
+<div class="bg-white rounded-2xl shadow-lg p-6 transform hover:-translate-y-2 hover:shadow-2xl transition-all col-span-1 md:col-span-2 lg:col-span-3">
+    <h2 class="text-xl font-semibold text-indigo-700 mb-4">Admin Panel Screenshots</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="{% static 'images/admin-screenshot-1.png' %}" alt="Admin Screenshot 1">
+        <img src="{% static 'images/admin-screenshot-2.png' %}" alt="Admin Screenshot 2">
+        <img src="{% static 'images/admin-screenshot-3.png' %}" alt="Admin Screenshot 3">
+        <img src="{% static 'images/admin-screenshot-4.png' %}" alt="Admin Screenshot 4">
+
+    </div>
+</div>
+
         </div>
     </main>
 
